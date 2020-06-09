@@ -8,9 +8,9 @@ defmodule MM.Schema.Topic do
 
   @timestamps_opts [type: :utc_datetime_usec]
   schema "topics" do
-    field :name, :string
-    belongs_to :user, MM.Schema.User
-    belongs_to :parent, MM.Schema.Topic
+    field(:name, :string)
+    belongs_to(:user, MM.Schema.User)
+    belongs_to(:parent, MM.Schema.Topic)
     timestamps()
   end
 

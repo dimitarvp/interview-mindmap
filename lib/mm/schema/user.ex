@@ -8,9 +8,9 @@ defmodule MM.Schema.User do
 
   @timestamps_opts [type: :utc_datetime_usec]
   schema "users" do
-    field :name, :string
-    field :email, :string
-    has_many :topics, MM.Schema.Topic
+    field(:name, :string)
+    field(:email, :string)
+    has_many(:topics, MM.Schema.Topic)
     timestamps()
   end
 
