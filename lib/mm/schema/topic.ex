@@ -1,24 +1,23 @@
-defmodule MM.Schema.User do
+defmodule MM.Schema.Topic do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_fields [:email, :name]
-  @optional_fields []
+  @required_fields [:name]
+  @optional_fields [:parent_id]
   @fields @required_fields ++ @optional_fields
 
   @timestamps_opts [type: :utc_datetime_usec]
-  schema "users" do
+  schema "topics" do
     field :name, :string
-    field :email, :string
-    has_many :topics, MM.Schema.Topic
+    belongs_to :user, MM.Schema.User
+    belongs_to :parent, MM.Schema.Topic
     timestamps()
   end
 
   @doc false
-  def changeset(user, attrs) do
-    user
+  def changeset(topic, attrs) do
+    topic
     |> cast(attrs, @fields)
     |> validate_required(@required_fields)
-    |> unique_constraint(:email)
   end
 end
