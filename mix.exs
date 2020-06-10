@@ -26,6 +26,8 @@ defmodule MM.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.4"},
+      {:ex_machina, "~> 2.4", only: :test},
+      {:faker, "~> 0.13", only: :test},
       {:postgrex, "~> 0.15"}
     ]
   end

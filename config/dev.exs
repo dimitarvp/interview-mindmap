@@ -8,4 +8,4 @@ config :mm, MM.Repo,
   pool_size: 10,
   migration_timestamps: [type: :utc_datetime_usec]
 
-config :logger, level: :warn
+config :logger, level: :debug
