@@ -1,2 +1,5 @@
-Ecto.Adapters.SQL.Sandbox.mode(MM.Repo, {:shared, self()})
+Ecto.Adapters.SQL.Sandbox.mode(MM.Repo, :manual)
+
+{:ok, _} = Application.ensure_all_started(:ex_machina)
+
 ExUnit.start()

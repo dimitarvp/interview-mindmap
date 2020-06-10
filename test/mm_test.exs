@@ -7,14 +7,8 @@ defmodule MMTest do
 
   import MM.Factory
 
-  setup tags do
+  setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
-    end
-
-    :ok
   end
 
   test "create user and topic" do
