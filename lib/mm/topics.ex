@@ -3,6 +3,9 @@ defmodule MM.Topics do
   alias MM.Schema.Topic
   import Ecto.Query
 
+  @doc ~S"""
+  Returns all root topics of a given user (cannot be `nil`).
+  """
   def roots_by_user_id(user_id) do
     from(
       x in Topic,
@@ -13,11 +16,18 @@ defmodule MM.Topics do
     |> Repo.all()
   end
 
+  @doc ~S"""
+  Returns the results of `search_query/3`.
+  """
   def search(user_id, parent_id, name) do
     search_query(user_id, parent_id, name)
     |> Repo.all()
   end
 
+  @doc ~S"""
+  Composes a query to search for levels 0, 1 and 2 topics by user ID, parent ID (potentially
+  `nil`) and a name fragment.
+  """
   def search_query(user_id, nil, name) do
     level_one = level_one_query(user_id, nil)
 
@@ -43,6 +53,10 @@ defmodule MM.Topics do
     )
   end
 
+  @doc ~S"""
+  Searches and selects only the IDs of topics by user ID (potentially `nil`) and a
+  parent ID (potentially `nil`).
+  """
   def level_one_query(nil, nil) do
     from(x in Topic, where: is_nil(x.parent_id), select: [:id])
   end
