@@ -15,7 +15,7 @@ By running the scripts described below, you should expect the following database
 
 - Task 1 is an SQL script and is implemented inside `scripts/payments.sql`.
 - Task 2 is an SQL script and is implemented inside `scripts/topics.sql`. Note that this SQL script ignores users and doesn't include them.
-- Task 3 is this Elixir repository itself. Read on for instructions on how to validate that.
+- Task 3 is this Elixir repository itself. This task includes users (unlike Task 2). Read on for instructions on how to validate this task.
 
 The actual implementation of Task 3 is in `lib/mm/topics.ex`, functions `roots_by_user_id/1` and `search/3`.
 
